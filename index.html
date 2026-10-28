@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es-PE"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solfware ERP | Manufactura interactiva</title>
+<style>
+:root{--ink:#132238;--muted:#66788e;--line:#e7ecf3;--bg:#f5f7fb;--nav:#101e34;--blue:#3c69f0;--cyan:#27c7ba;--amber:#f5ac45;--shadow:0 10px 35px rgba(20,40,70,.045)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Arial,sans-serif;font-size:14px;line-height:1.5}button,input,select{font:inherit}button{cursor:pointer;transition:transform .12s,background .15s,box-shadow .15s}button:hover:not(:disabled){transform:translateY(-1px)}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #9fc1ff;outline-offset:2px}
+.app{display:flex;min-height:100vh}aside{width:262px;background:linear-gradient(160deg,#101e34 0%,#142945 100%);padding:26px 15px 20px;color:#e4eaf6;flex:none;min-height:100vh;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;z-index:2}.brand{display:flex;gap:12px;align-items:center;padding:3px 10px 25px;border-bottom:1px solid #ffffff18}.brand-symbol{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;font-weight:900;font-size:24px;color:#fff;background:linear-gradient(135deg,#5284ff,#21cbbb);box-shadow:0 8px 22px #2869ec35}.brand h1{font-size:17px;margin:0;color:#fff;font-weight:800;letter-spacing:.02em}.brand small{display:block;color:#9aaac0;font-size:11px;letter-spacing:.13em;text-transform:uppercase;margin-top:1px}.nav-label{display:block;margin:27px 12px 10px;color:#7790ad;font-size:10px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}nav{display:grid;gap:5px}nav a{display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;cursor:pointer;color:#b5c4d8;text-decoration:none;font-size:13px;font-weight:580;transition:.18s}nav a:hover{background:#ffffff12;color:#fff}nav a.on{color:#fff;background:#3568e7;box-shadow:0 6px 18px #020e283b}nav svg{width:17px;height:17px;flex:none;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}.side-bottom{margin-top:auto;padding:24px 8px 0}.side-bottom label{display:block;color:#8ea0bb;font-size:11px;font-weight:700;letter-spacing:.08em;margin:0 0 8px;text-transform:uppercase}.side-bottom select{width:100%;background:#243853;color:#fff;border:1px solid #3e506b;padding:11px;border-radius:9px;margin-bottom:12px}.side-actions{display:flex;gap:6px}.side-actions button{flex:1;padding:9px 5px;font-size:11px;border:1px solid #384a64;background:#20344f;color:#cad9eb;border-radius:8px}.side-bottom p{color:#7d94af;font-size:11px;line-height:1.5;margin:20px 2px 0}
+main{flex:1;min-width:0;padding:31px clamp(18px,3vw,49px) 42px;max-width:1750px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px}.eyebrow{display:block;font-size:10px;font-weight:850;letter-spacing:.18em;color:#5a7dd0;text-transform:uppercase}.top h2{margin:1px 0 3px;font-size:clamp(22px,2vw,29px);letter-spacing:-.045em;line-height:1.25;font-weight:800}.top-sub{color:#8b98aa;font-size:12px}.rightmeta{display:flex;gap:11px;align-items:center;flex-wrap:wrap}.meta-company{font-size:12px;color:#60718a;max-width:250px;text-align:right}.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:30px;background:#fff2da;color:#a36211;border:1px solid #f3ddae;font-size:10px;font-weight:800;white-space:nowrap;letter-spacing:.04em}.badge:before{content:'';width:6px;height:6px;border-radius:50%;background:#e9a335}
+.card{background:#fff;border-radius:16px;box-shadow:var(--shadow);border:1px solid #eaf0f6;padding:22px;margin-bottom:18px}.card h3{margin:0 0 15px;font-size:16px;letter-spacing:-.018em;font-weight:760}.card p{line-height:1.6}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:18px}.kpi{background:#fff;border:1px solid #eaf0f6;border-radius:15px;padding:21px;box-shadow:var(--shadow);position:relative;min-height:128px;overflow:hidden}.kpi:before{content:'';display:block;width:40px;height:4px;background:var(--kpi-color,#4778f0);border-radius:10px;margin-bottom:15px}.kpi b{display:block;font-size:32px;letter-spacing:-.05em;line-height:1.05}.kpi span{color:var(--muted);font-size:12px;display:block;margin-top:8px}.kpi .kpi-tip{position:absolute;right:19px;top:22px;font-size:17px;color:#9aa9bd}
+.hero{background:linear-gradient(112deg,#142a49 10%,#2454b9 100%);border-radius:17px;padding:30px 32px;color:#fff;position:relative;overflow:hidden;margin-bottom:19px;display:flex;justify-content:space-between;align-items:center;gap:28px}.hero:after{content:'';position:absolute;border:1px solid #ffffff20;border-radius:50%;width:390px;height:390px;right:-124px;top:-228px;box-shadow:0 0 0 45px #ffffff08,0 0 0 95px #ffffff05;pointer-events:none}.hero h3{font-size:clamp(21px,2.1vw,29px);line-height:1.23;letter-spacing:-.035em;max-width:510px;margin:9px 0 11px;font-weight:800}.hero p{color:#cad9f3;max-width:570px;font-size:13px;margin:0}.hero .eyebrow{color:#6ee1d9}.hero-actions{position:relative;z-index:1;flex-shrink:0;display:flex;flex-wrap:wrap;gap:10px}.hero button{padding:13px 18px;background:#fff;color:#1e4280;border:0;font-weight:800;border-radius:9px}.hero button.sec{background:#ffffff1a;color:#fff;border:1px solid #ffffff45}
+.two-cols{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(290px,.8fr);gap:17px}.flow-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin-bottom:12px}.flow-step{background:#f1f5fa;border:1px solid #e7edf6;border-radius:10px;padding:10px 5px;text-align:center;min-height:77px}.flow-step .bubble{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;font-weight:800;background:#dce5f1;color:#58708e;margin:0 auto 6px;font-size:11px}.flow-step span{display:block;font-size:10px;color:#8290a4;white-space:normal}.flow-step.current{background:#eef4ff;border-color:#acc5ff}.flow-step.current .bubble{background:#3f74ee;color:#fff}.flow-step.current span{color:#315cbd;font-weight:800}.flow-step.past{background:#e9f8f2;border-color:#beead9}.flow-step.past .bubble{background:#23af85;color:#fff}.flow-step.past span{color:#288e70}.metric{display:flex;gap:12px;align-items:center;margin:14px 0}.metric-label{width:108px;color:#6a7b91;font-size:12px;flex:none}.metric-track{height:9px;border-radius:20px;background:#edf1f6;overflow:hidden;flex:1}.metric-track>i{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,#5b81f0,#2dbed0)}.metric-num{min-width:28px;text-align:right;font-weight:800;font-size:12px}.hint{background:#f3f7ff;border:1px solid #e1eafc;color:#557093;padding:13px 14px;border-radius:10px;font-size:12px;margin-top:14px}.footnote{font-size:11px;color:#91a0af;margin-top:14px}
+.tw{width:100%;overflow:auto;scrollbar-color:#d7dfeb transparent}table{width:100%;border-collapse:collapse}th,td{padding:12px 13px;text-align:left;border-bottom:1px solid #edf1f7;white-space:nowrap;vertical-align:middle}thead th{font-size:10px;color:#77879d;text-transform:uppercase;letter-spacing:.075em;font-weight:800;background:#f8fafd}tbody tr:hover{background:#f9fbfe}tbody tr:last-child td{border-bottom:none}td.n,th.n{text-align:right}tfoot td{background:#f7f9fd;font-weight:750;border-top:1px solid var(--line)}td .muted{font-size:11px}.st{display:inline-flex;padding:4px 9px;border-radius:20px;font-size:11px;font-weight:700;color:#687586;background:#edf1f5;white-space:nowrap;text-transform:capitalize}.st.ok{background:#e5f8ee;color:#138457}.st.warn{background:#fff4dc;color:#a56d0b}.st.bad{background:#fee9e8;color:#c73e4d}.st.info{background:#e8eeff;color:#426bc3}.short{color:#c8384b;font-weight:750}
+button{background:#274c8f;color:white;border:0;border-radius:9px;padding:9px 13px;font-size:12px;font-weight:700;margin:2px}button.sec{background:#eef2f8;color:#3b597f}button.acc{background:#356def;color:#fff}button.danger{background:#a83b4b;color:#fff}button:disabled{opacity:.4;cursor:not-allowed}input,select{min-height:36px;padding:9px 11px;border:1px solid #dbe3ed;border-radius:9px;font-size:12px;color:#263952;background:#fff}input:hover,select:hover{border-color:#98b3e8}.form{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.form>div{display:flex;flex-direction:column;gap:5px}.form label{font-size:11px;color:#788ca1;font-weight:700}.form input,.form select{max-width:260px}.form button{min-height:36px}.stages{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}.stage{flex:1;min-width:130px;background:#f6f8fb;border:1px solid #e7edf5;border-radius:11px;padding:12px;color:#60718a;font-size:12px;line-height:1.4}.stage.done{background:#e9f9f0;border-color:#b4e7cf;color:#16855b}.stage.cur{background:#ecf3ff;border-color:#9cbaf8;color:#2356ba;font-weight:750}.muted{color:#7b8a9b;font-size:12px}.guion li{padding-bottom:8px}.demo-off{background:#fff0ea;color:#c27536;border-color:#f5d3bf}
+#modal{position:fixed;inset:0;background:#0b1930a8;display:none;align-items:center;justify-content:center;z-index:9;padding:16px;backdrop-filter:blur(3px)}#modal .card{max-width:750px;width:100%;max-height:91vh;overflow:auto;box-shadow:0 24px 85px #0004}#toast{position:fixed;bottom:25px;right:23px;background:#16335e;color:white;padding:13px 18px;border-radius:10px;display:none;z-index:12;box-shadow:0 12px 30px #152f5950;max-width:min(400px,90vw)}.help-mini{color:#788ca2;font-size:12px;margin:8px 0 0}.empty-state{padding:32px 10px;text-align:center;color:#7388a3}.empty-state strong{display:block;color:#30445d;margin:7px 0;font-size:14px}.mini-pill{display:inline-flex;gap:5px;align-items:center;background:#edf5ff;padding:5px 9px;border-radius:20px;font-size:11px;color:#3b62a3;font-weight:700}.small-cta{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.row-end{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.card-heading{margin-bottom:13px}.card-heading h3{margin:0}.card-heading p{margin:3px 0 0}.guion-note{font-size:12px;color:#607b9d}a{color:inherit}
+@media(max-width:1180px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two-cols{grid-template-columns:1fr}.hero{align-items:flex-start}.hero-actions{flex-direction:column}}
+@media(max-width:760px){.app{display:block}aside{position:relative;width:100%;height:auto;min-height:0;padding:14px 14px 12px}.brand{padding:0 3px 12px}.brand-symbol{height:33px;width:33px}.nav-label{display:none}nav{display:flex;overflow:auto;gap:7px;scrollbar-width:none;margin-top:10px;padding-bottom:2px}nav a{padding:9px 11px;font-size:11px;white-space:nowrap;gap:7px}nav svg{width:15px;height:15px}.side-bottom{display:flex;align-items:center;gap:10px;padding:12px 1px 0;flex-wrap:wrap}.side-bottom label{display:none}.side-bottom select{width:auto;flex:1;margin:0;min-width:145px}.side-actions{flex:1;justify-content:flex-end}.side-actions button{max-width:135px}.side-bottom p{display:none}main{padding:20px 13px}.top{margin-bottom:18px}.meta-company{display:none}.hero{padding:24px 21px;flex-direction:column;gap:17px}.hero-actions{flex-direction:row}.grid{gap:10px}.kpi{padding:15px;min-height:115px}.kpi b{font-size:28px}.flow-strip{grid-template-columns:repeat(3,1fr)}.card{padding:16px;margin-bottom:12px}.rightmeta{gap:4px}}
+@media(max-width:390px){.grid{grid-template-columns:1fr 1fr}.hero button{width:100%}.hero-actions{width:100%}nav a{font-size:11px}.top h2{font-size:22px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style></head><body>
+<div class="app">
+<aside aria-label="Navegación principal">
+ <div class="brand"><div class="brand-symbol">S</div><div><h1>Solfware ERP</h1><small>Manufactura · Demo</small></div></div>
+ <span class="nav-label">ESPACIO DE TRABAJO</span><nav id="nav" aria-label="Módulos"></nav>
+ <div class="side-bottom"><label for="scen">Empresa / escenario</label>
+ <select id="scen" aria-label="Escenario de manufactura"><option value="ext">🧯 Extintores Andinos</option><option value="gam">👕 Textil Gamarra</option></select>
+ <div class="side-actions"><button id="export" title="Descargar respaldo del escenario">↓ Exportar</button><button id="reset" title="Reiniciar escenario">↻ Reiniciar</button></div>
+ <p>Entorno demostrativo. Los datos se guardan únicamente en este navegador. No hay conexión con SUNAT ni con un ERP real.</p></div>
+</aside>
+<main><header class="top"><div><span class="eyebrow">SISTEMA DE GESTIÓN / PRODUCCIÓN</span><h2 id="title"></h2><div class="top-sub">Del pedido del cliente al despacho del producto</div></div><div class="rightmeta"><span class="meta-company" id="company"></span><span class="badge">MODO DEMOSTRACIÓN</span></div></header><section id="view" aria-live="polite"></section></main>
+</div><div id="modal" role="dialog" aria-modal="true" aria-label="Ventana de operación"><div class="card" id="mbody"></div></div><div id="toast" role="status" aria-live="polite"></div>
+<script>
+"use strict";
+const $=s=>document.querySelector(s);
+const PAGES=[["dash","Dashboard"],["ped","Pedidos"],["ot","Órdenes de trabajo"],["com","Compras"],["inv","Inventario"],["con","Contabilidad"],["pro","Productos y recetas"]];
+const ACC={"21":"Productos terminados","23":"Productos en proceso","24":"Materias primas","40":"IGV por pagar (40.1.1)","42":"Facturas por pagar","60":"Compras de materias primas","61":"Variación de existencias"};
+const money=n=>"S/ "+(Math.round(n*100)/100).toLocaleString("es-PE",{minimumFractionDigits:2,maximumFractionDigits:2});
+const num=n=>(Math.round(n*1000)/1000).toLocaleString("es-PE",{maximumFractionDigits:3});
+const r2=n=>Math.round(n*100)/100;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const isoLocal=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const today=()=>isoLocal(new Date());
+const addDays=d=>{const x=new Date();x.setDate(x.getDate()+d);return isoLocal(x)};
+
+function seedExt(){return{company:"Extintores Andinos SAC (ficticio)",
+  items:[
+  {id:"cil",code:"MP-CIL6",name:"Cilindro 6 kg",uom:"und",cost:85,sup:"s1"},
+  {id:"cil5",code:"MP-CIL5",name:"Cilindro CO2 5 kg",uom:"und",cost:160,sup:"s1"},
+  {id:"val",code:"MP-VAL",name:"Válvula",uom:"und",cost:32,sup:"s1"},
+  {id:"pqs",code:"MP-PQS",name:"Polvo PQS ABC",uom:"kg",cost:9.5,sup:"s2"},
+  {id:"co2",code:"MP-CO2",name:"CO2 líquido",uom:"kg",cost:6,sup:"s2"},
+  {id:"n2",code:"MP-N2",name:"Nitrógeno",uom:"m³",cost:40,sup:"s2"},
+  {id:"man",code:"MP-MAN",name:"Manómetro",uom:"und",cost:14,sup:"s1"},
+  {id:"mng",code:"MP-MNG",name:"Manguera",uom:"und",cost:11,sup:"s1"},
+  {id:"eti",code:"MP-ETI",name:"Etiqueta / certificado",uom:"und",cost:2.5,sup:"s2"}],
+  stock:{cil:80,cil5:30,val:30,pqs:400,co2:200,n2:5,man:80,mng:80,eti:200},
+  products:[
+  {id:"pqs6",code:"PT-PQS6",name:"Extintor PQS 6 kg",price:189,variants:["Estándar"],
+   bom:[{i:"cil",q:1},{i:"val",q:1},{i:"pqs",q:6,scrap:2},{i:"n2",q:0.05},{i:"man",q:1},{i:"mng",q:1},{i:"eti",q:1}],
+   stages:["Preparación del cilindro","Llenado","Presurización","Prueba de hermeticidad","Etiquetado"]},
+  {id:"co25",code:"PT-CO25",name:"Extintor CO2 5 kg",price:420,variants:["Estándar"],
+   bom:[{i:"cil5",q:1},{i:"val",q:1},{i:"co2",q:5,scrap:3},{i:"mng",q:1},{i:"eti",q:1}],
+   stages:["Preparación del cilindro","Llenado","Presurización","Prueba de hermeticidad","Etiquetado"]}],
+  customers:[{n:"Municipalidad Distrital Demo",ruc:"20999999001"},{n:"Minera Ficticia del Sur SAC",ruc:"20999999002"},{n:"Clínica Ejemplo SAC",ruc:"20999999003"}],
+  suppliers:[{id:"s1",n:"Metalúrgica Demo SAC",ruc:"20999999101"},{id:"s2",n:"Químicos Ejemplo EIRL",ruc:"20999999102"}],
+  def:{p:"pqs6",q:50}}}
+function seedGam(){const v=[];["S","M","L"].forEach(t=>["Blanco","Negro"].forEach(c=>v.push(t+" / "+c)));
+  return{company:"Confecciones Gamarra SAC (ficticio)",
+  items:[
+  {id:"telb",code:"MP-TJB",name:"Tela jersey Blanco",uom:"m",cost:12,sup:"s1"},
+  {id:"teln",code:"MP-TJN",name:"Tela jersey Negro",uom:"m",cost:13,sup:"s1"},
+  {id:"hil",code:"MP-HIL",name:"Hilo (cono)",uom:"m",cost:0.01,sup:"s2"},
+  {id:"eti",code:"MP-ETI",name:"Etiqueta de talla/marca",uom:"und",cost:0.3,sup:"s2"},
+  {id:"bol",code:"MP-BOL",name:"Bolsa de empaque",uom:"und",cost:0.2,sup:"s2"}],
+  stock:{telb:120,teln:15,hil:20000,eti:500,bol:500},
+  products:[{id:"polo",code:"PT-POLO",name:"Polo básico",price:25,variants:v,
+   bom:[{i:"tel",q:0,bySize:{S:0.9,M:1,L:1.1},byColor:{Blanco:"telb",Negro:"teln"}},{i:"hil",q:120},{i:"eti",q:2},{i:"bol",q:1}],
+   stages:["Corte","Confección","Acabado","Control de calidad"]}],
+  customers:[{n:"Tienda Moda Ejemplo EIRL",ruc:"20999999201"},{n:"Uniformes Demo SAC",ruc:"20999999202"}],
+  suppliers:[{id:"s1",n:"Textiles Ficticios SAC",ruc:"20999999301"},{id:"s2",n:"Avíos Demo EIRL",ruc:"20999999302"}],
+  def:{p:"polo",q:20}}}
+
+let S,scen=localStorage.getItem("solfdemo_scen_v2")||"ext",page="dash";
+if(!["ext","gam"].includes(scen))scen="ext";
+const I={dash:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',ped:'<path d="M4 4h16v16H4zM8 9h8M8 13h8M8 17h5"/>',ot:'<path d="M12 2v4m0 12v4M4.9 4.9l2.8 2.8m8.6 8.6 2.8 2.8M2 12h4m12 0h4M4.9 19.1l2.8-2.8m8.6-8.6 2.8-2.8"/><circle cx="12" cy="12" r="5"/>',com:'<path d="M3 7h18l-2 12H5L3 7ZM9 7V5a3 3 0 0 1 6 0v2"/>',inv:'<path d="m12 2 9 5-9 5-9-5 9-5ZM3 7v10l9 5 9-5V7M12 12v10"/>',con:'<path d="M4 3h16v18H4zM8 7h8M8 11h8M8 15h3M14 15h2M8 18h8"/>',pro:'<path d="M3 21h18V9l-6 3V9l-6 3V4H3v17ZM6 16h2m4 0h2m4 0h1"/>'};
+const icon=k=>`<svg viewBox="0 0 24 24" aria-hidden="true">${I[k]||I.dash}</svg>`;
+const key=()=>"solfdemo_v2_"+scen;
+function fresh(){const b=scen==="ext"?seedExt():seedGam();
+  Object.assign(b,{orders:[],ots:[],scs:[],ocs:[],moves:[],journal:[],seq:{PED:0,OT:0,SC:0,OC:0,AS:0}});
+  for(const[k,q] of Object.entries(b.stock)){const it=b.items.find(i=>i.id===k);b.moves.push({d:today(),item:k,q,cost:it.cost,why:"Saldo inicial",ref:"SEMILLA"})}
+  delete b.stock;return b}
+function load(){try{S=JSON.parse(localStorage.getItem(key()))}catch(e){S=null}if(!S){S=fresh();save()}}
+function save(){localStorage.setItem(key(),JSON.stringify(S))}
+const nextId=p=>p+"-"+String(++S.seq[p]).padStart(4,"0");
+const item=id=>S.items.find(i=>i.id===id);const prod=id=>S.products.find(p=>p.id===id);
+const stock=k=>r2x(S.moves.filter(m=>m.item===k).reduce((a,m)=>a+m.q,0));
+function r2x(n){return Math.round(n*1000)/1000}
+const fgKey=(p,v)=>"FG|"+p+"|"+v;
+function toast(t){const e=$("#toast");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display="none",2500)}
+function entry(glosa,ref,lines){S.journal.push({id:nextId("AS"),d:today(),glosa,ref,lines:lines.map(l=>({a:l[0],dr:r2(l[1]),cr:r2(l[2])}))})}
+
+// BOM explosion
+function explode(p,lines){const req={};
+  for(const l of lines){const [t,c]=l.v.split(" / ");
+   for(const b of p.bom){let id=b.i,q=b.q;if(b.bySize){q=b.bySize[t]||0}if(b.byColor)id=b.byColor[c];
+    q=q*l.q*(1+(b.scrap||0)/100);req[id]=(req[id]||0)+q}}
+  return Object.entries(req).map(([id,q])=>({item:id,req:r2x(q)}))}
+function reqView(ot){return ot.reqs.map(r=>{const av=stock(r.item);return{...r,av,short:r2x(Math.max(0,r.req-av))}})}
+const shortages=ot=>reqView(ot).filter(r=>r.short>0);
+
+const ST={pendiente:"warn",en_produccion:"info",listo:"ok",entregado:"ok",esperando_materiales:"bad",lista_para_iniciar:"info",terminada:"ok",pendiente_sc:"warn",convertida:"ok",emitida:"warn",recibida:"ok"};
+const st=s=>`<span class="st ${ST[s]||""}">${s.replace(/_/g," ")}</span>`;
+function otStatus(ot){if(ot.status!=="pendiente")return ot.status;return shortages(ot).length?"esperando_materiales":"lista_para_iniciar"}
+
+// ACTIONS
+const A={
+  addLine(){rememberOrderForm();const p=prod(orderForm.p),v=orderForm.v,q=+orderForm.q;
+   if(!Number.isInteger(q)||q<=0||q>100000)return toast("Ingresa una cantidad entera válida");
+   if(draft.length&&draft.some(l=>l.p!==p.id))return toast("No puedes mezclar productos en un mismo pedido");
+   const existing=draft.find(l=>l.p===p.id&&l.v===v);if(existing)existing.q+=q;else draft.push({p:p.id,v,q});render()},
+  delLine(i){rememberOrderForm();draft.splice(i,1);render()},
+  saveOrder(){rememberOrderForm();let lines=draft.slice();if(!lines.length){const q=+orderForm.q;if(!Number.isInteger(q)||q<1||q>100000)return toast("Ingresa una cantidad entera válida");lines=[{p:orderForm.p,v:orderForm.v,q}]}
+   const pid=lines[0].p;if(lines.some(l=>l.p!==pid))return toast("Usa un solo producto por pedido");
+   if(orderForm.due<today())return toast("La fecha de entrega no puede ser anterior a hoy");
+   const c=S.customers[+orderForm.c];const o={id:nextId("PED"),d:today(),due:orderForm.due||addDays(7),cust:c.n,ruc:c.ruc,p:pid,lines:lines.map(l=>({v:l.v,q:l.q})),status:"pendiente"};
+   S.orders.push(o);draft=[];orderForm=null;save();toast("Pedido "+o.id+" creado");render()},
+  genOT(oid){const o=S.orders.find(x=>x.id===oid);if(!o||o.status!=="pendiente")return toast("El pedido ya tiene una OT");const p=prod(o.p);
+   const ot={id:nextId("OT"),d:today(),ped:o.id,p:o.p,lines:o.lines,reqs:explode(p,o.lines),stage:-1,status:"pendiente"};
+   S.ots.push(ot);o.status="en_produccion";o.ot=ot.id;save();toast("OT "+ot.id+" generada");sel=ot.id;go("ot")},
+  genSC(otid){const ot=S.ots.find(x=>x.id===otid);const sh=shortages(ot);if(!sh.length)return toast("No hay faltantes");
+   if(purchasePending(ot))return toast("Ya hay compras pendientes para esta OT");
+   const groups={};sh.forEach(r=>{const sid=item(r.item).sup;(groups[sid]??=[]).push({item:r.item,q:Math.ceil(r.short*1000)/1000})});
+   const ids=[];Object.entries(groups).forEach(([sid,lines])=>{const sc={id:nextId("SC"),d:today(),ot:ot.id,lines,status:"pendiente_sc",supplier:sid};S.scs.push(sc);ids.push(sc.id)});
+   ot.scs=[...(ot.scs||[]),...ids];ot.sc=ids[0];save();toast(ids.length+" solicitud(es) de compra generadas por proveedor");go("com")},
+  convertSC(scid){const sc=S.scs.find(x=>x.id===scid);if(!sc||sc.status!=="pendiente_sc")return toast("Solicitud ya procesada");const sup=sc.supplier||item(sc.lines[0].item).sup;
+   modal(`<h3>Convertir ${sc.id} en Orden de compra</h3><div class="form"><div><label>Proveedor</label><select id="msup">${S.suppliers.map(s=>`<option value="${s.id}" ${s.id===sup?"selected":""}>${esc(s.n)} · RUC ${s.ruc}</option>`).join("")}</select></div></div>
+   <div class="tw"><table><thead><tr><th>Material</th><th class="n">Cantidad</th><th class="n">Precio unit. (sin IGV)</th><th class="n">Subtotal</th></tr></thead><tbody>
+   ${sc.lines.map((l,i)=>`<tr><td>${esc(item(l.item).name)}</td><td class="n">${num(l.q)} ${item(l.item).uom}</td><td class="n"><input type="number" step="0.01" min="0" id="mp${i}" value="${item(l.item).cost}" style="width:100px" oninput="A.ocCalc('${sc.id}')"></td><td class="n" id="ms${i}"></td></tr>`).join("")}
+   </tbody><tfoot><tr><td colspan="3" class="n">Valor venta</td><td class="n" id="mvv"></td></tr><tr><td colspan="3" class="n">IGV 18%</td><td class="n" id="migv"></td></tr><tr><td colspan="3" class="n">Total</td><td class="n" id="mtot"></td></tr></tfoot></table></div>
+   <p><button class="acc" onclick="A.createOC('${sc.id}')">Crear OC</button><button class="sec" onclick="closeModal()">Cancelar</button></p>`);A.ocCalc(sc.id)},
+  ocCalc(scid){const sc=S.scs.find(x=>x.id===scid);let vv=0;sc.lines.forEach((l,i)=>{const s=r2(l.q*Math.max(0,+$("#mp"+i).value||0));vv+=s;$("#ms"+i).textContent=money(s)});
+   vv=r2(vv);const igv=r2(vv*.18);$("#mvv").textContent=money(vv);$("#migv").textContent=money(igv);$("#mtot").textContent=money(vv+igv)},
+  createOC(scid){const sc=S.scs.find(x=>x.id===scid);if(!sc||sc.status!=="pendiente_sc")return;
+   const sup=S.suppliers.find(s=>s.id===$("#msup").value);
+   const lines=sc.lines.map((l,i)=>({item:l.item,q:l.q,pu:+$("#mp"+i).value}));
+   if(lines.some(l=>!Number.isFinite(l.pu)||l.pu<0))return toast("Revisa los precios unitarios");
+   const vv=r2(lines.reduce((a,l)=>a+r2(l.q*l.pu),0)),igv=r2(vv*.18);
+   const oc={id:nextId("OC"),d:today(),sc:sc.id,sup:sup.n,ruc:sup.ruc,lines,vv,igv,total:r2(vv+igv),status:"emitida"};S.ocs.push(oc);sc.status="convertida";sc.oc=oc.id;
+   save();closeModal();toast("Orden de compra "+oc.id+" creada");render()},
+  receiveOC(ocid){const oc=S.ocs.find(x=>x.id===ocid);if(oc.status==="recibida")return;
+   oc.lines.forEach(l=>S.moves.push({d:today(),item:l.item,q:l.q,cost:l.pu,why:"Recepción de compra",ref:oc.id}));
+   oc.status="recibida";
+   entry("Compra de materias primas "+oc.id+" – "+oc.sup,oc.id,[["60",oc.vv,0],["40",oc.igv,0],["42",0,oc.total]]);
+   entry("Destino de compra "+oc.id,oc.id,[["24",oc.vv,0],["61",0,oc.vv]]);
+   save();toast(oc.id+" recibida: stock actualizado y asientos generados");render()},
+  start(otid){const ot=S.ots.find(x=>x.id===otid);if(!ot||ot.status!=="pendiente")return;
+   if(shortages(ot).length)return toast("Aún hay faltantes");ot.status="en_produccion";ot.stage=0;save();render()},
+  next(otid){const ot=S.ots.find(x=>x.id===otid);if(!ot||ot.status!=="en_produccion")return;const n=prod(ot.p).stages.length;if(ot.stage<n)ot.stage++;save();render()},
+  finish(otid){const ot=S.ots.find(x=>x.id===otid);if(!ot||ot.status!=="en_produccion")return;const p=prod(ot.p);if(ot.stage<p.stages.length)return toast("Completa todas las etapas");
+   if(shortages(ot).length)return toast("Stock insuficiente para consumir");
+   let cost=0;ot.reqs.forEach(r=>{const c=r2(r.req*item(r.item).cost);cost+=c;S.moves.push({d:today(),item:r.item,q:-r.req,cost:item(r.item).cost,why:"Consumo en producción",ref:ot.id})});
+   cost=r2(cost);const tq=ot.lines.reduce((a,l)=>a+l.q,0);
+   ot.lines.forEach(l=>S.moves.push({d:today(),item:fgKey(p.id,l.v),q:l.q,cost:r2(cost/tq),why:"Ingreso de producto terminado",ref:ot.id}));
+   entry("Consumo de materiales "+ot.id,ot.id,[["23",cost,0],["24",0,cost]]);
+   entry("Ingreso de productos terminados "+ot.id,ot.id,[["21",cost,0],["23",0,cost]]);
+   ot.status="terminada";ot.cost=cost;const o=S.orders.find(x=>x.id===ot.ped);o.status="listo";
+   save();toast(ot.id+" terminada · "+o.id+" listo para entregar");render()},
+  deliver(oid){const o=S.orders.find(x=>x.id===oid);if(!o||o.status!=="listo")return;const p=prod(o.p);
+   for(const l of o.lines)if(stock(fgKey(p.id,l.v))<l.q)return toast("Stock de producto terminado insuficiente");
+   o.lines.forEach(l=>S.moves.push({d:today(),item:fgKey(p.id,l.v),q:-l.q,cost:0,why:"Despacho al cliente",ref:o.id}));o.status="entregado";save();toast(o.id+" entregado");render()},
+  selOT(id){sel=id;render()},
+  changeProduct(){rememberOrderForm();orderForm.p=$("#fp").value;orderForm.v=prod(orderForm.p).variants[0];if(draft.length&&draft.some(l=>l.p!==orderForm.p))draft=[];render()},
+  quickStart(){if(S.orders.some(o=>o.status!=="entregado")){const o=S.orders.slice().reverse().find(o=>o.status!=="entregado");sel=o.ot||null;return go(o.ot?"ot":"ped")}
+   const p=prod(S.def.p);const lines=scen==="gam"?[{v:"M / Negro",q:40},{v:"L / Blanco",q:20}]:[{v:p.variants[0],q:S.def.q}];
+   const c=S.customers[0],o={id:nextId("PED"),d:today(),due:addDays(7),cust:c.n,ruc:c.ruc,p:p.id,lines,status:"pendiente"};S.orders.push(o);
+   const ot={id:nextId("OT"),d:today(),ped:o.id,p:o.p,lines:o.lines,reqs:explode(p,o.lines),stage:-1,status:"pendiente"};S.ots.push(ot);o.status="en_produccion";o.ot=ot.id;
+   sel=ot.id;save();toast("Caso de muestra creado: "+o.id+" y "+ot.id);go("ot")},
+  exportDemo(){const blob=new Blob([JSON.stringify({escenario:scen,exportado:today(),datos:S},null,2)],{type:"application/json;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="solfware-erp-"+scen+"-"+today()+".json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast("Respaldo descargado")},
+};
+let draft=[],sel=null,orderForm=null;
+function rememberOrderForm(){if(!$("#fc"))return;orderForm={c:$("#fc").value,p:$("#fp").value,v:$("#fv").value,q:$("#fq").value,due:$("#fd").value}}
+function purchasePending(ot){return S.scs.some(s=>s.ot===ot.id&&s.status==="pendiente_sc")||S.ocs.some(c=>c.status==="emitida"&&S.scs.some(s=>s.id===c.sc&&s.ot===ot.id))}
+function demoStep(){const o=S.orders.at(-1);if(!o)return 0;if(!o.ot)return 1;if(o.status==="entregado")return 6;const ot=S.ots.find(x=>x.id===o.ot);if(!ot)return 1;if(ot.status==="terminada")return 5;if(ot.status==="en_produccion")return 4;if(shortages(ot).length)return S.scs.some(s=>s.ot===ot.id)?3:2;return 4}
+function shortStock(){const req={};S.ots.filter(o=>o.status==="pendiente").forEach(o=>o.reqs.forEach(r=>req[r.item]=(req[r.item]||0)+r.req));return Object.entries(req).map(([id,need])=>({it:item(id),need,avail:stock(id),short:Math.max(0,need-stock(id))})).filter(x=>x.short>0).sort((a,b)=>b.short-a.short)}
+function modal(h){$("#mbody").innerHTML=h;$("#modal").style.display="flex"}
+function closeModal(){$("#modal").style.display="none"}
+
+// VIEWS
+const T=(head,rows,foot)=>`<div class="tw"><table><thead><tr>${head.map(h=>`<th${h[0]==="#"?' class="n"':""}>${h.replace(/^#/,"")}</th>`).join("")}</tr></thead><tbody>${rows.length?rows.join(""):`<tr><td colspan="${head.length}" class="muted">Sin registros todavía.</td></tr>`}</tbody>${foot||""}</table></div>`;
+const qtyTxt=o=>o.lines.reduce((a,l)=>a+l.q,0);
+const V={
+  dash(){const open=S.orders.filter(o=>o.status!=="entregado").length,otc=S.ots.filter(o=>o.status!=="terminada").length,
+   ocp=S.ocs.filter(o=>o.status!=="recibida").length,falt=shortStock().length,stp=demoStep(),active=S.orders.at(-1),
+   chart=[{label:"Pedidos",count:S.orders.length},{label:"OT generadas",count:S.ots.length},{label:"Solicitudes",count:S.scs.length},{label:"Compras",count:S.ocs.length}],max=Math.max(1,...chart.map(c=>c.count));
+   const descriptions=["Crea un caso con un pedido y una OT para comenzar el recorrido.","Genera la orden de trabajo del pedido.","Revisa la explosión de materiales y los faltantes.","Convierte las solicitudes en compras y recibe los materiales.","Inicia y completa las etapas de fabricación.","Entrega el producto terminado al cliente.","¡Proceso completo! Puedes explorar los movimientos y asientos generados."];
+   const steps=["Pedido","Orden de trabajo","Materiales","Compras","Producción","Entrega"];
+   const out=`<div class="hero"><div><span class="eyebrow">VISIÓN 360° DE LA OPERACIÓN</span><h3>Tu fábrica, del pedido a la entrega, en un solo lugar.</h3><p>Explora dos industrias, descubre faltantes, gestiona compras, controla la fabricación y revisa el registro contable de cada operación.</p></div><div class="hero-actions"><button onclick="A.quickStart()">${open?"Continuar recorrido":"▶ Iniciar caso de muestra"}</button><button class="sec" onclick="go('ped')">+ Nuevo pedido</button></div></div>
+   <div class="grid"><div class="kpi" style="--kpi-color:#3c73f2"><span class="kpi-tip">↗</span><b>${open}</b><span>Pedidos abiertos</span></div><div class="kpi" style="--kpi-color:#24bbaa"><span class="kpi-tip">⚙</span><b>${otc}</b><span>Órdenes en curso</span></div><div class="kpi" style="--kpi-color:#f6b355"><span class="kpi-tip">◇</span><b>${ocp}</b><span>Compras por recibir</span></div><div class="kpi" style="--kpi-color:#e5697b"><span class="kpi-tip">!</span><b>${falt}</b><span>Insumos con déficit</span></div></div>
+   <div class="two-cols"><div class="card"><div class="card-heading"><h3>Recorrido interactivo</h3><p class="muted">Avanza por los seis hitos de una operación industrial</p></div>
+   <div class="flow-strip">${steps.map((a,i)=>`<div class="flow-step ${stp>i?'past':stp===i?'current':''}"><div class="bubble">${stp>i?'✓':i+1}</div><span>${a}</span></div>`).join("")}</div>
+   <div class="hint"><strong>${stp===6?"Caso completado":"Siguiente acción"}</strong> · ${descriptions[stp]} ${active?`<span class="mini-pill" style="margin-left:6px">${active.id}</span>`:""}</div>
+   <div class="row-end" style="margin-top:15px"><span class="muted">${stp} de 6 hitos alcanzados</span><button class="acc" onclick="A.quickStart()">${active&&active.status!=="entregado"?"Abrir operación →":"Iniciar recorrido →"}</button></div></div>
+   <div class="card"><div class="card-heading"><h3>Pulso de la operación</h3><p class="muted">Registros generados en este escenario</p></div>${chart.map(c=>`<div class="metric"><span class="metric-label">${c.label}</span><div class="metric-track"><i style="width:${c.count?Math.max(8,c.count/max*100):0}%"></i></div><span class="metric-num">${c.count}</span></div>`).join("")}
+   <p class="footnote">Los indicadores se actualizan a medida que usas los módulos.</p></div></div>
+   <div class="two-cols"><div class="card"><div class="row-end card-heading"><h3>Pedidos recientes</h3><button class="sec" onclick="go('ped')">Ver todos →</button></div>${S.orders.length?T(["Pedido","Cliente","Producto","#Unid.","Estado"],S.orders.slice(-4).reverse().map(o=>`<tr><td><b>${o.id}</b></td><td>${esc(o.cust)}</td><td>${esc(prod(o.p).name)}</td><td class="n">${qtyTxt(o)}</td><td>${st(o.status)}</td></tr>`)):`<div class="empty-state"><div style="font-size:27px">▤</div><strong>Aún no hay pedidos</strong>Inicia el caso de muestra o registra un pedido desde el módulo Pedidos.</div>`}</div>
+   <div class="card"><div class="row-end card-heading"><h3>Alertas de materiales</h3><button class="sec" onclick="go('inv')">Inventario →</button></div>${shortStock().length?T(["Insumo","#Faltante"],shortStock().slice(0,5).map(x=>`<tr><td>${esc(x.it.name)}</td><td class="n short">${num(x.short)} ${x.it.uom}</td></tr>`)):`<div class="empty-state"><div style="font-size:27px">◈</div><strong>Sin alertas de material</strong>Los faltantes aparecerán cuando registres una OT.</div>`}<p class="footnote">Alertas estimadas para órdenes pendientes; no incluyen reservas de inventario.</p></div></div>`;
+   return out},
+  ped(){if(!orderForm)orderForm={c:"0",p:S.products[0].id,v:S.products[0].variants[0],q:String(S.def.q),due:addDays(7)};
+   const p0=prod(orderForm.p)||S.products[0];
+   return `<div class="card"><h3>Nuevo pedido de cliente</h3><div class="form">
+   <div><label>Cliente</label><select id="fc">${S.customers.map((c,i)=>`<option value="${i}" ${String(i)===orderForm.c?"selected":""}>${esc(c.n)} · RUC ${c.ruc}</option>`).join("")}</select></div>
+   <div><label>Producto</label><select id="fp" onchange="A.changeProduct()">${S.products.map(p=>`<option value="${p.id}" ${p.id===p0.id?"selected":""}>${esc(p.name)}</option>`).join("")}</select></div>
+   <div><label>Variante</label><select id="fv">${p0.variants.map(v=>`<option ${v===orderForm.v?"selected":""}>${v}</option>`).join("")}</select></div>
+   <div><label>Cantidad</label><input id="fq" type="number" min="1" max="100000" step="1" value="${orderForm.q}" style="width:100px"></div>
+   <div><label>Fecha de entrega</label><input id="fd" type="date" min="${today()}" value="${orderForm.due}"></div>
+   ${p0.variants.length>1?`<div><button class="sec" onclick="A.addLine()">+ Agregar línea</button></div>`:""}
+   <div><button class="acc" id="btnSaveOrder" onclick="A.saveOrder()">Guardar pedido</button></div></div>
+   ${draft.length?`<p class="muted">Líneas del pedido:</p>${T(["Variante","#Cantidad",""],draft.map((l,i)=>`<tr><td>${l.v}</td><td class="n">${l.q}</td><td><button class="sec" onclick="A.delLine(${i})">Quitar</button></td></tr>`))}`:p0.variants.length>1?`<p class="muted">Agrega varias líneas (talla/color) con «+ Agregar línea»; si no agregas ninguna se guarda la variante seleccionada.</p>`:""}</div>
+   <div class="card"><h3>Pedidos</h3>${T(["Pedido","Fecha","Cliente","Producto","Detalle","#Cantidad","#Total (inc. IGV)","Entrega","Estado","Acción"],S.orders.slice().reverse().map(o=>{const p=prod(o.p);
+    return `<tr><td>${o.id}</td><td>${o.d}</td><td>${esc(o.cust)}<div class="muted">RUC ${o.ruc}</div></td><td>${esc(p.name)}</td><td>${o.lines.map(l=>l.v+": "+l.q).join("<br>")}</td><td class="n">${qtyTxt(o)}</td><td class="n">${money(qtyTxt(o)*p.price)}</td><td>${o.due}</td><td>${st(o.status)}</td><td>${
+    o.status==="pendiente"?`<button class="acc" onclick="A.genOT('${o.id}')">Generar OT</button>`:o.status==="listo"?`<button onclick="A.deliver('${o.id}')">Entregar</button>`:o.ot?`<button class="sec" onclick="sel='${o.ot}';go('ot')">Ver ${o.ot}</button>`:""}</td></tr>`}))}</div>`},
+  ot(){if(!sel&&S.ots.length)sel=S.ots[S.ots.length-1].id;const ot=S.ots.find(x=>x.id===sel);
+   let h=`<div class="card"><h3>Órdenes de trabajo</h3>${T(["OT","Pedido","Producto","#Cantidad","Etapa","Estado",""],S.ots.slice().reverse().map(o=>{const p=prod(o.p);return `<tr><td>${o.id}</td><td>${o.ped}</td><td>${esc(p.name)}</td><td class="n">${qtyTxt(o)}</td><td>${o.stage<0?"—":o.stage>=p.stages.length?"Completadas":p.stages[o.stage]}</td><td>${st(otStatus(o))}</td><td><button class="sec" onclick="A.selOT('${o.id}')">Abrir</button></td></tr>`}))}</div>`;
+   if(!ot)return h+`<div class="card muted">Genera una OT desde un pedido en «Pedidos».</div>`;
+   const p=prod(ot.p),rv=reqView(ot),sh=rv.filter(r=>r.short>0),s=otStatus(ot);
+   let mat="";if(p.variants.length>1){const ts=["S","M","L"],cs=["Blanco","Negro"];const g=(t,c)=>ot.lines.filter(l=>l.v===t+" / "+c).reduce((a,l)=>a+l.q,0);
+    mat=`<h3>Matriz talla × color</h3>${T(["Color",...ts.map(t=>"#"+t),"#Total"],cs.map(c=>`<tr><td>${c}</td>${ts.map(t=>`<td class="n">${g(t,c)}</td>`).join("")}<td class="n"><b>${ts.reduce((a,t)=>a+g(t,c),0)}</b></td></tr>`),`<tfoot><tr><td>Total</td>${ts.map(t=>`<td class="n">${cs.reduce((a,c)=>a+g(t,c),0)}</td>`).join("")}<td class="n">${qtyTxt(ot)}</td></tr></tfoot>`)}<br>`}
+   h+=`<div class="card" id="otdetail"><h3>${ot.id} · ${esc(p.name)} · ${qtyTxt(ot)} und · ${st(s)}</h3><p class="muted">Pedido ${ot.ped}${(ot.scs||[ot.sc].filter(Boolean)).length?" · Solicitudes "+(ot.scs||[ot.sc].filter(Boolean)).join(", "):""}</p>${mat}
+   <h3>Explosión de materiales (receta × cantidad)</h3>${T(["Material","Unidad","#Requerido","#Disponible","#Faltante"],rv.map(r=>`<tr><td>${esc(item(r.item).name)}</td><td>${item(r.item).uom}</td><td class="n">${num(r.req)}</td><td class="n">${num(r.av)}</td><td class="n ${r.short>0&&ot.status==="pendiente"?"short":""}">${ot.status==="pendiente"?num(r.short):"—"}</td></tr>`))}
+   <p>${ot.status==="pendiente"&&sh.length?`<span class="short">Hay ${sh.length} material(es) con faltante.</span> `+(purchasePending(ot)?`<button class="sec" onclick="go('com')">Ver compras pendientes</button>`:`<button class="acc" id="btnSC" onclick="A.genSC('${ot.id}')">Generar solicitud de compra</button>`):""}
+   ${ot.status==="pendiente"?`<button id="btnStart" ${sh.length?"disabled":""} onclick="A.start('${ot.id}')">Iniciar producción</button>`:""}</p>
+   <h3>Ruta de producción</h3><div class="stages">${p.stages.map((x,i)=>`<div class="stage ${ot.stage>i?"done":ot.stage===i?"cur":""}">${i+1}. ${x}<div class="muted">${ot.stage>i?"Completada":ot.stage===i?"En curso":"Pendiente"}</div></div>`).join("")}</div>
+   ${ot.status==="en_produccion"?(ot.stage<p.stages.length?`<button class="acc" id="btnNext" onclick="A.next('${ot.id}')">Completar etapa: ${p.stages[ot.stage]}</button>`:`<button class="acc" id="btnFinish" onclick="A.finish('${ot.id}')">Terminar</button>`):""}
+   ${ot.status==="terminada"?`<p>${st("terminada")} Costo de materiales consumidos: <b>${money(ot.cost)}</b> (${money(ot.cost/qtyTxt(ot))} por unidad).</p>`:""}</div>`;return h},
+  com(){return `<div class="card"><h3>Solicitudes de compra</h3>${T(["SC","Fecha","OT","Materiales","Estado",""],S.scs.slice().reverse().map(s=>`<tr><td>${s.id}</td><td>${s.d}</td><td>${s.ot}</td><td>${s.lines.map(l=>esc(item(l.item).name)+": "+num(l.q)+" "+item(l.item).uom).join("<br>")}</td><td>${st(s.status)}</td><td>${s.status==="pendiente_sc"?`<button class="acc" onclick="A.convertSC('${s.id}')">Convertir en OC</button>`:s.oc}</td></tr>`))}</div>
+   <div class="card"><h3>Órdenes de compra</h3>${T(["OC","Fecha","Proveedor","Detalle","#Valor venta","#IGV 18%","#Total","Estado",""],S.ocs.slice().reverse().map(o=>`<tr><td>${o.id}</td><td>${o.d}</td><td>${esc(o.sup)}<div class="muted">RUC ${o.ruc}</div></td><td>${o.lines.map(l=>esc(item(l.item).name)+": "+num(l.q)+" × "+money(l.pu)).join("<br>")}</td><td class="n">${money(o.vv)}</td><td class="n">${money(o.igv)}</td><td class="n"><b>${money(o.total)}</b></td><td>${st(o.status)}</td><td>${o.status==="emitida"?`<button class="acc" onclick="A.receiveOC('${o.id}')">Recibir OC</button>`:""}</td></tr>`))}</div>`},
+  inv(){const fg=[];S.products.forEach(p=>p.variants.forEach(v=>fg.push([p,v])));
+   return `<div class="card"><h3>Materiales</h3>${T(["Código","Material","Unidad","#Stock","#Costo std.","#Valorizado"],S.items.map(i=>{const s=stock(i.id);return `<tr><td>${i.code}</td><td>${esc(i.name)}</td><td>${i.uom}</td><td class="n">${num(s)}</td><td class="n">${money(i.cost)}</td><td class="n">${money(s*i.cost)}</td></tr>`}))}</div>
+   <div class="card"><h3>Productos terminados</h3>${T(["Código","Producto","Variante","#Stock"],fg.map(([p,v])=>`<tr><td>${p.code}</td><td>${esc(p.name)}</td><td>${v}</td><td class="n">${stock(fgKey(p.id,v))}</td></tr>`))}</div>
+   <div class="card"><h3>Movimientos (kardex demo)</h3>${T(["Fecha","Referencia","Motivo","Ítem","#Cantidad"],S.moves.slice().reverse().map(m=>{let n;if(m.item.startsWith("FG|")){const[,p,v]=m.item.split("|");n=prod(p).name+" ("+v+")"}else n=item(m.item).name;return `<tr><td>${m.d}</td><td>${m.ref}</td><td>${m.why}</td><td>${esc(n)}</td><td class="n" style="color:${m.q<0?"#a4161a":"#146c2e"}">${m.q>0?"+":""}${num(m.q)}</td></tr>`}))}</div>`},
+  con(){let td=0,tc=0;const rows=[];S.journal.forEach(e=>e.lines.forEach((l,i)=>{td+=l.dr;tc+=l.cr;rows.push(`<tr><td>${i?"":e.id}</td><td>${i?"":e.d}</td><td>${i?"":esc(e.glosa)}</td><td>${l.a} – ${ACC[l.a]}</td><td class="n">${l.dr?money(l.dr):""}</td><td class="n">${l.cr?money(l.cr):""}</td></tr>`)}));
+   const bal={};S.journal.forEach(e=>e.lines.forEach(l=>bal[l.a]=(bal[l.a]||0)+l.dr-l.cr));
+   return `<div class="card"><h3>Libro diario <span class="badge demo-off">DEMO – no oficial</span></h3><p class="muted">PCGE simplificado, solo ilustrativo. Valídalo con tu contador.</p>
+   ${T(["Asiento","Fecha","Glosa","Cuenta","#Debe","#Haber"],rows,`<tfoot><tr><td colspan="4">Totales ${r2(td)===r2(tc)?st("ok"):'<span class="st bad">descuadre</span>'}</td><td class="n" id="tdebe">${money(td)}</td><td class="n" id="thaber">${money(tc)}</td></tr></tfoot>`)}</div>
+   <div class="card"><h3>Saldos por cuenta</h3>${T(["Cuenta","#Saldo deudor","#Saldo acreedor"],Object.keys(bal).sort().map(a=>`<tr><td>${a} – ${ACC[a]}</td><td class="n">${bal[a]>0.004?money(bal[a]):""}</td><td class="n">${bal[a]<-0.004?money(-bal[a]):""}</td></tr>`))}</div>`},
+  pro(){return S.products.map(p=>{let std=0;const rows=p.bom.map(b=>{let id=b.i,q=b.q,unit;if(b.byColor){id=Object.values(b.byColor)[0];unit="m";}
+    const nm=b.byColor?"Tela jersey (según color: "+Object.keys(b.byColor).join("/")+")":item(id).name;
+    const qt=b.bySize?Object.entries(b.bySize).map(([k,v])=>k+": "+v).join(" · "):num(q);
+    const c=(b.bySize?b.bySize.M:q)*(1+(b.scrap||0)/100)*item(id).cost;std+=c;
+    return `<tr><td>${esc(nm)}</td><td class="n">${qt}</td><td>${unit||item(id).uom}</td><td class="n">${b.scrap?b.scrap+" %":"—"}</td><td class="n">${money(c)}</td></tr>`});
+   return `<div class="card"><h3>${p.code} · ${esc(p.name)} · Precio ${money(p.price)}</h3><p class="muted">Variantes: ${p.variants.join(", ")}</p>
+   <h3>Receta (BOM) por unidad</h3>${T(["Material","#Cantidad","Unidad","#Merma","#Costo std."+(p.variants.length>1?" (talla M)":"")],rows,`<tfoot><tr><td colspan="4">Costo estándar de materiales</td><td class="n">${money(std)}</td></tr></tfoot>`)}
+   <h3 style="margin-top:14px">Ruta de producción</h3><div class="stages">${p.stages.map((s,i)=>`<div class="stage">${i+1}. ${s}</div>`).join("")}</div></div>`}).join("")},
+};
+function go(p){if(!V[p])return;page=p;render();window.scrollTo(0,0)}
+function render(){$("#nav").innerHTML=PAGES.map(([k,t])=>`<a role="link" tabindex="0" aria-current="${k===page?"page":"false"}" class="${k===page?"on":""}" onclick="go('${k}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();go('${k}')}" >${icon(k)}<span>${t}</span></a>`).join("");
+  $("#title").textContent=PAGES.find(x=>x[0]===page)[1];$("#company").textContent=S.company;$("#view").innerHTML=V[page]()}
+$("#scen").value=scen;
+$("#scen").onchange=e=>{scen=e.target.value;localStorage.setItem("solfdemo_scen_v2",scen);sel=null;draft=[];orderForm=null;load();go("dash")};
+$("#reset").onclick=()=>modal(`<h3>¿Reiniciar la demo?</h3><p>Se borran los datos del escenario «${scen==="ext"?"Extintores":"Textil Gamarra"}» y se vuelve a cargar la semilla.</p><button class="danger" id="btnConfirmReset" onclick="S=fresh();save();sel=null;draft=[];orderForm=null;closeModal();go('dash');toast('Demo reiniciada')">Sí, reiniciar</button><button class="sec" onclick="closeModal()">Cancelar</button>`);
+$("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+$("#export").onclick=A.exportDemo;
+document.title="Solfware ERP · Manufactura interactiva";
+load();render();
+</script></body></html>
